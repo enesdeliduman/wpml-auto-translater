@@ -13,7 +13,7 @@ const deeplHelper = require("./Helpers/DeeplHelper");
         await driver.get(process.env.PAGES);
 
         let hasMorePages = true;
-
+        // Fields 
         while (hasMorePages) {
             await driver.wait(until.elementLocated(By.className('js-wpml-translate-link')), 5000);
             let wpmlLinks = await driver.findElements(By.className('js-wpml-translate-link'));
@@ -30,7 +30,7 @@ const deeplHelper = require("./Helpers/DeeplHelper");
 
             if (filteredLinks.length === 0) {
                 console.log('Tercüme edilecek daha fazla bağlantı yok.');
-                hasMorePages = false; 
+                hasMorePages = false;
                 break;
             }
 
@@ -90,6 +90,7 @@ const deeplHelper = require("./Helpers/DeeplHelper");
             }
         }
 
+        // Contents
     } finally {
         await driver.quit();
     }
